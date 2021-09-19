@@ -1,16 +1,16 @@
-name: transactions
+name: categorize
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "*/30 * * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-      - name: Import accounts and transactions
+      - name: Process uncategorized transactions
         env:
           API_ROOT: ${{ secrets.API_ROOT }}
           SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
         run: |
           curl \
-          --url "$API_ROOT/api/import" \
+          --url "$API_ROOT/api/process" \
           --header "secret-token: $SECRET_TOKEN"
