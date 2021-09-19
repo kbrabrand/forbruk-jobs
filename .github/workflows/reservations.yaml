@@ -1,0 +1,16 @@
+name: reservations
+on:
+  schedule:
+    - cron: "5/* * * * *"
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import reservations
+        env:
+          API_ROOT: ${{ secrets.API_ROOT }}
+          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
+        run: |
+          curl \
+          --url "$API_ROOT/api/reservations" \
+          --headers "secret-token: $SECRET_TOKEN"

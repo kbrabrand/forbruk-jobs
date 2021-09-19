@@ -1,4 +1,4 @@
-name: import
+name: transactions
 on:
   schedule:
     - cron: "*/15 * * * *"
@@ -9,6 +9,8 @@ jobs:
       - name: Import accounts and transactions
         env:
           API_ROOT: ${{ secrets.API_ROOT }}
+          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
         run: |
           curl --request POST \
-          --url "$API_ROOT/api/import"
+          --url "$API_ROOT/api/import" \
+          --headers "secret-token: $SECRET_TOKEN"
