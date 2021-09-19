@@ -1,7 +1,7 @@
 name: transactions
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "17 * * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest
