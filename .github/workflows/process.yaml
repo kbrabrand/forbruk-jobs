@@ -1,0 +1,14 @@
+name: process
+on:
+  schedule:
+    - cron: "5,20,35,50 * * * *"
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Process transactions
+        env:
+          API_ROOT: ${{ secrets.ApiRoot }}
+        run: |
+          curl --request POST \
+          --url '$API_ROOT/api/process'

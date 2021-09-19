@@ -1,0 +1,14 @@
+name: import
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Import accounts and transactions
+        env:
+          API_ROOT: ${{ secrets.ApiRoot }}
+        run: |
+          curl --request POST \
+          --url '$API_ROOT/api/import'
