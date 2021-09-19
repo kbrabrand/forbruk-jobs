@@ -13,4 +13,4 @@ jobs:
         run: |
           curl \
           --url "$API_ROOT/api/reservations" \
-          --headers "secret-token: $SECRET_TOKEN"
+          --header "secret-token: $SECRET_TOKEN"

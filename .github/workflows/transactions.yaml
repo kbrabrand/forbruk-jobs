@@ -13,4 +13,4 @@ jobs:
         run: |
           curl --request POST \
           --url "$API_ROOT/api/import" \
-          --headers "secret-token: $SECRET_TOKEN"
+          --header "secret-token: $SECRET_TOKEN"
