@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Import accounts and transactions
         env:
-          API_ROOT: ${{ secrets.ApiRoot }}
+          API_ROOT: ${{ secrets.API_ROOT }}
         run: |
           curl --request POST \
-          --url '$API_ROOT/api/import'
+          --url "$API_ROOT/api/import"

@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Process transactions
         env:
-          API_ROOT: ${{ secrets.ApiRoot }}
+          API_ROOT: ${{ secrets.API_ROOT }}
         run: |
           curl --request POST \
-          --url '$API_ROOT/api/process'
+          --url "$API_ROOT/api/process"
